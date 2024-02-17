@@ -12,7 +12,7 @@ def setup_arguments(parser):
     # Job ID Specification
     parser.add_argument('--jobid', '-j', help='Specify the job ID for job-centric visualizations.')
     # Visualization Type
-    parser.add_argument('--type', '-t', help='Specify the type of visualization to be generated.')
+    parser.add_argument('--type', '-t', choices=['node-timeline', 'job-timeline', 'io-timeline'], help='Specify the type of visualization to be generated.')
     # Storage Path
     parser.add_argument('--store', '-s', help='Specify the path where the OTF2 file is stored.')
     # OTF2 File Naming
