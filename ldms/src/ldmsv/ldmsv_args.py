@@ -27,7 +27,9 @@ def setup_arguments(parser):
     # Node Specification
     parser.add_argument('--node', '-n', help='Specify a particular node for node-centric visualizations.')
     # Time Range Filter
-    parser.add_argument('--time-range', '-t', type=parse_time_range, help='Filter the data to a specific time range for the visualization.')
+    parser.add_argument('--time-range', '-t', type=parse_time_range,
+                        help='Filter the data to a specific time range for the visualization. '
+                             'Format: Unix timestamps (start:end) or "YYYY-MM-DD HH:MM:SS".')
     # Verbose Output
     parser.add_argument('--verbose', '-v', action='store_true', help='Provide more detailed output about the visualization generation process.')
     # Version Display
