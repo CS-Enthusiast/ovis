@@ -14,6 +14,15 @@ def parse_time_range(time_range_str):
             # If not a Unix timestamp, try parsing as a human-readable date-time
             return datetime.strptime(t_str, "%Y-%m-%d %H:%M:%S")
 
+    start_time = parse_time(start_str)
+    end_time = parse_time(end_str)
+
+    # Convert datetime objects back to Unix timestamps if needed
+    start_timestamp = start_time.timestamp()
+    end_timestamp = end_time.timestamp()
+
+    return start_timestamp, end_timestamp
+
 def setup_arguments(parser):
     # Node Specification
     parser.add_argument('--node', '-n', help='Specify a particular node for node-centric visualizations.')
