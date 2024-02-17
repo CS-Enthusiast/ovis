@@ -6,6 +6,14 @@ def parse_time_range(time_range_str):
     # Split the input string by the colon
     start_str, end_str = time_range_str.split(':')
 
+    def parse_time(t_str):
+        # Try to parse the unix timestamp first
+        try:
+            return datetime.fromtimestamp(float(t_str))
+        except ValueError:
+            # If not a Unix timestamp, try parsing as a human-readable date-time
+            return datetime.strptime(t_str, "%Y-%m-%d %H:%M:%S")
+
 def setup_arguments(parser):
     # Node Specification
     parser.add_argument('--node', '-n', help='Specify a particular node for node-centric visualizations.')
