@@ -37,9 +37,9 @@ def setup_arguments(parser):
     # Metrics Specification
     parser.add_argument('--metrics', '-m', help='Specify which metrics to include in the visualization.')
     # Job ID Specification
-    parser.add_argument('--jobid', '-j', help='Specify the job ID for job-centric visualizations.')
+    parser.add_argument('--jobid', '-j', required=True, help='Specify the job ID for job-centric visualizations.')
     # Visualization Type
-    parser.add_argument('--type', '-t', choices=['node-timeline', 'job-timeline', 'io-timeline'], help='Specify the type of visualization to be generated.')
+    parser.add_argument('--type', '-t', required=True, choices=['node-timeline', 'job-timeline', 'io-timeline'], help='Specify the type of visualization to be generated.')
     # Storage Path
     parser.add_argument('--store', '-s', help='Specify the path where the OTF2 file is stored.')
     # OTF2 File Naming
