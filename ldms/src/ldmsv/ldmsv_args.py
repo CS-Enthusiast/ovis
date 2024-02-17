@@ -2,6 +2,10 @@ import argparse
 from datetime import datetime
 import time
 
+def parse_time_range(time_range_str):
+    # Split the input string by the colon
+    start_str, end_str = time_range_str.split(':')
+
 def setup_arguments(parser):
     # Node Specification
     parser.add_argument('--node', '-n', help='Specify a particular node for node-centric visualizations.')
