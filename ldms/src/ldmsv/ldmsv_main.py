@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 import argparse
 from ldmsv_args import setup_arguments
 from ldmsv_handlers import handle_command
