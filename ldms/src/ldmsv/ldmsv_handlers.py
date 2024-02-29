@@ -17,8 +17,11 @@ def handle_node_timeline(args):
     Args:
         args (Namespace): The parsed command-line arguments.
     """
-    print(f"Generating node timeline for Node: {args.node}")
-    # Implement the logic to generate node timeline visualization here.
+    # Check if a job ID is also provided for more specific visualization
+    if args.jobid:
+        print(f"Generating node timeline for Node: {args.node} for Job ID: {args.jobid}")
+    else:
+        print(f"Generating node timeline for Node: {args.node}")
 
 def handle_io_timeline(args):
     """
@@ -27,8 +30,15 @@ def handle_io_timeline(args):
     Args:
         args (Namespace): The parsed command-line arguments.
     """
-    print("Generating I/O timeline")
-    # Implement the logic to generate I/O timeline visualization here.
+    # I/O timeline might be specific to a job, a node, both, or neither
+    if args.jobid and args.node:
+        print(f"Generating I/O timeline for Job ID: {args.jobid} on Node: {args.node}")
+    elif args.jobid:
+        print(f"Generating I/O timeline for Job ID: {args.jobid}")
+    elif args.node:
+        print(f"Generating I/O timeline for Node: {args.node}")
+    else:
+        print("Generating general I/O timeline")
 
 def handle_command(args):
     """
